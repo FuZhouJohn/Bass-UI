@@ -1,4 +1,4 @@
-const base = process.env.NODE_ENV === 'production' ? '/Bass-UI/' : '/';
+const base = process.env.NODE_ENV === 'production' ? '/Bass-UI' : '/';
 const { resolve } = require('path');
 const { getRouterConfig } = require('./router');
 
@@ -13,8 +13,8 @@ module.exports = {
   },
   base,
   themeConfig: {
-    // logo: '../logo.svg',
-    // nav: [{ text: 'demo', link: '/math' }],
+    logo: '/logo.svg',
+    nav: [{ text: 'demo', link: '/math' }],
     lang: 'zh-CN',
     locales: {
       '/': {
