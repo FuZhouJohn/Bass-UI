@@ -1,4 +1,4 @@
-const base = process.env.NODE_ENV === 'production' ? '/bass-ui' : '';
+const base = process.env.NODE_ENV === 'production' ? '/Bass-UI' : '';
 const { resolve } = require('path');
 const { getRouterConfig } = require('./router');
 
