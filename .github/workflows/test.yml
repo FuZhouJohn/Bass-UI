@@ -20,7 +20,5 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: ls-lint
         run: yarn ls-lint
-      - name: Test
-        run: yarn test
       - name: Build
-        run: yarn build
+        run: yarn docs-build-deploy
