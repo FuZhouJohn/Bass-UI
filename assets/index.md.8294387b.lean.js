@@ -1,0 +1,1 @@
+import{o as t,c as e,a}from"./app.b23e6abe.js";const n={components:{}},r='{"title":"","description":"","frontmatter":{},"relativePath":"index.md","lastUpdated":1618240114223}',o=a("p",null,"在这里写介绍文档。",-1);n.render=function(a,n,r,p,d,i){return t(),e("div",null,[o])};export default n;export{r as __pageData};
