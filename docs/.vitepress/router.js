@@ -1,7 +1,7 @@
 const { kebabCase } = require('lodash');
 
 const Router = {
-  Form: ['Switch'],
+  Form: ['Switch', 'Button'],
 };
 
 function getRouterConfig(langPrefix = '/') {

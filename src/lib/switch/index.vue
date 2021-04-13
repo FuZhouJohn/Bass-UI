@@ -37,8 +37,8 @@ export default defineComponent({
 </script>
 <style lang="scss">
 @import '../../theme/index.scss';
-$h: 22px;
-$h2: $h - 8px;
+$h: 24px;
+$h2: $h - 6px;
 .bass-switch {
   height: $h;
   width: $h * 2;
@@ -49,8 +49,8 @@ $h2: $h - 8px;
   position: relative;
   > span {
     position: absolute;
-    top: 2px;
-    left: 2px;
+    top: 1px;
+    left: 1px;
     height: $h2;
     width: $h2;
     background: white;
@@ -66,11 +66,11 @@ $h2: $h - 8px;
     background: #ffa502;
     border-color: #ffa502;
     > span {
-      left: calc(100% - #{$h2} - 2px);
+      left: calc(100% - #{$h2} - 1px);
     }
     &:active {
       > span {
-        left: calc(100% - #{$h2} - 8px);
+        left: calc(100% - #{$h2} - 7px);
       }
     }
   }
