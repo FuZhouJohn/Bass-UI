@@ -29,7 +29,7 @@ $border-color: #ced6e0;
 $color: #2f3542;
 $orange: #ffa502;
 $radius: 5px;
-$radius-top-right: $h/2;
+$radius-top-right: $h/2 + 6px;
 .bass-button {
   box-sizing: border-box;
   height: $h;

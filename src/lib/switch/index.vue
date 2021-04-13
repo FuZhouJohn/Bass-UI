@@ -60,6 +60,10 @@ $h2: $h - 6px;
     border-radius: $h2 / 2;
     transition: left 250ms, width 250ms;
   }
+  &:hover {
+    border-color: lighten(#a4b0be, 10%);
+    background-color: lighten(#a4b0be, 10%);
+  }
   &:active {
     > span {
       width: calc(#{$h2} + 6px);
@@ -75,6 +79,10 @@ $h2: $h - 6px;
       > span {
         left: calc(100% - #{$h2} - 7px);
       }
+    }
+    &:hover {
+      border-color: lighten(#ffa502, 10%);
+      background-color: lighten(#ffa502, 10%);
     }
   }
 }
