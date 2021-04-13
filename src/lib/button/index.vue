@@ -1,13 +1,10 @@
 <template>
-  <button
-    class="bass-button"
-    :class="{ [`bass-button-theme-${theme}`]: theme }"
-  >
+  <button class="bass-button" :class="classes">
     <slot></slot>
   </button>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
@@ -20,7 +17,16 @@ export default defineComponent({
       default: 'normal',
     },
   },
-  setup(_, context) {},
+  setup(props) {
+    const { theme, size } = props;
+    const classes = computed(() => ({
+      [`bass-theme-${theme}`]: theme,
+      [`bass-size-${size}`]: size,
+    }));
+    return {
+      classes,
+    };
+  },
 });
 </script>
 <style lang="scss">
@@ -60,7 +66,18 @@ $radius-top-right: $h/2 + 6px;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.bass-button-theme-primary {
+  &.bass-theme-button {
+    border-color: $border-color;
+    background-color: white;
+    box-shadow: 0 1px 0 fade-out(#2f3542, 0.95);
+    color: $color;
+    &:hover,
+    &:focus {
+      color: $orange;
+      border-color: $orange;
+    }
+  }
+  &.bass-theme-primary {
     border-color: $orange;
     background-color: $orange;
     box-shadow: none;
@@ -70,7 +87,7 @@ $radius-top-right: $h/2 + 6px;
       background-color: lighten($orange, 10%);
     }
   }
-  &.bass-button-theme-link {
+  &.bass-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $orange;
@@ -79,7 +96,7 @@ $radius-top-right: $h/2 + 6px;
       color: lighten($orange, 10%);
     }
   }
-  &.bass-button-theme-text {
+  &.bass-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
@@ -87,6 +104,20 @@ $radius-top-right: $h/2 + 6px;
     &:focus {
       background: darken(white, 5%);
     }
+  }
+  &.bass-size-small {
+    height: $h - 10px;
+    padding: 0 8px 0 6px;
+    font-size: 14px;
+    border-radius: $radius - 2px;
+    border-top-right-radius: ($h - 10px) / 2 + 3px;
+  }
+  &.bass-size-large {
+    height: $h + 10px;
+    padding: 0 24px 0 22px;
+    font-size: 18px;
+    border-radius: $radius + 2px;
+    border-top-right-radius: ($h + 10px) / 2 + 9px;
   }
 }
 </style>

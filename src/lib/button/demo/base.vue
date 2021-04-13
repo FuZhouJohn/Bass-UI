@@ -1,5 +1,5 @@
 <template>
-  <Button>Default Button</Button>
+  <Button theme="test">Default Button</Button>
   <Button theme="primary">Primary Button</Button>
   <Button theme="link">Link Button</Button>
   <Button theme="text">Text Button</Button>

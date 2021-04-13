@@ -1,7 +1,7 @@
 <template>
   <button
     class="bass-switch"
-    :class="{ 'bass-switch-checked': checked }"
+    :class="{ 'bass-checked': checked }"
     @click="toggle"
   >
     <span></span>
@@ -69,7 +69,7 @@ $h2: $h - 6px;
       width: calc(#{$h2} + 6px);
     }
   }
-  &.bass-switch-checked {
+  &.bass-checked {
     background: #ffa502;
     border-color: #ffa502;
     > span {
