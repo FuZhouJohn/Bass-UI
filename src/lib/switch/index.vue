@@ -11,39 +11,41 @@ export default defineComponent({
   props: {
     modelValue: {
       type: [String, Boolean],
-      default: false
-    }
+      default: false,
+    },
   },
   emit: ['update:modelValue'],
   setup(props, context) {
-    const { modelValue } = toRefs(props)
+    const { modelValue } = toRefs(props);
     const checked = computed({
       get(): boolean {
-        return modelValue.value === true || modelValue.value === 'true'
+        return modelValue.value === true || modelValue.value === 'true';
       },
       set(value: boolean) {
-        context.emit('update:modelValue', value)
-      }
-    })
+        context.emit('update:modelValue', value);
+      },
+    });
     const toggle = () => {
-      checked.value = !checked.value
-    }
+      checked.value = !checked.value;
+    };
     return {
       checked,
-      toggle
-    }
-  }
+      toggle,
+    };
+  },
 });
 </script>
 <style lang="scss">
+@import '../../theme/index.scss';
 $h: 22px;
-$h2: $h - 4px;
+$h2: $h - 8px;
 .bass-switch {
   height: $h;
   width: $h * 2;
   border: none;
   background: #a4b0be;
   border-radius: $h/2;
+  border: 2px solid #a4b0be;
   position: relative;
   > span {
     position: absolute;
@@ -62,6 +64,7 @@ $h2: $h - 4px;
   }
   &.checked {
     background: #ffa502;
+    border-color: #ffa502;
     > span {
       left: calc(100% - #{$h2} - 2px);
     }
