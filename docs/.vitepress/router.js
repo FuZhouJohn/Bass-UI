@@ -4,7 +4,7 @@ const Router = {
   Form: ['Switch'],
 };
 
-const getRouterConfig = (langPrefix = '/') => {
+function getRouterConfig(langPrefix = '/') {
   return [
     {
       text: langPrefix === '/' ? '介绍' : 'Introduction',
@@ -18,7 +18,7 @@ const getRouterConfig = (langPrefix = '/') => {
       })),
     })),
   ];
-};
+}
 
 module.exports = {
   getRouterConfig,

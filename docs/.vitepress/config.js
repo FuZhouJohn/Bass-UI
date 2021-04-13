@@ -1,26 +1,23 @@
-const base = process.env.NODE_ENV === 'production' ? '/Bass-UI' : '/';
+const base = process.env.NODE_ENV === 'production' ? '/Bass-UI' : '';
 const { resolve } = require('path');
 const { getRouterConfig } = require('./router');
 
 module.exports = {
   title: 'Bass-UI',
-  description: '',
-  // 扫描srcIncludes里面的 *.md文件
-  srcIncludes: ['src'],
+  description: 'ui vue3',
   alias: {
-    // 为了能在demo中正确的使用  import { X } from 'bass-ui'
-    [`bass-ui`]: resolve('./src'),
+    'bass-ui': resolve('./src'),
   },
   base,
+  outDir: '../dist',
   themeConfig: {
     logo: '/logo.svg',
-    nav: [{ text: 'demo', link: '/math' }],
     lang: 'zh-CN',
     locales: {
       '/': {
         lang: 'zh-CN',
         title: 'bass-ui',
-        description: '',
+        description: 'ui vue3',
         label: '中文',
         selectText: '语言',
         nav: [{ text: '指南', link: '/' }],
@@ -29,15 +26,12 @@ module.exports = {
       '/en/': {
         lang: 'en-US',
         title: 'bass-ui',
-        description: '',
+        description: 'ui vue3',
         label: 'English',
         selectText: 'Languages',
         nav: [{ text: 'Guide', link: '/' }],
         sidebar: getRouterConfig('/en/'),
       },
-    },
-    search: {
-      searchMaxSuggestions: 10,
     },
     repo: 'fuzhoujohn/bass-ui',
     repoLabel: 'Github',

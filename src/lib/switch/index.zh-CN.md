@@ -7,7 +7,9 @@ map:
 
 开关选择器
 
-<demo src="./demo/demo1.vue"
+## 基础用法
+
+<demo src="./demo/base.vue"
   language="vue"
   title="基本"
   desc="最简单的用法。">
