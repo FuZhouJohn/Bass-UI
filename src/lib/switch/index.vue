@@ -1,5 +1,9 @@
 <template>
-  <button class="bass-switch" :class="{ checked }" @click="toggle">
+  <button
+    class="bass-switch"
+    :class="{ 'bass-switch-checked': checked }"
+    @click="toggle"
+  >
     <span></span>
   </button>
 </template>
@@ -36,7 +40,6 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
-@import '../../theme/index.scss';
 $h: 24px;
 $h2: $h - 6px;
 .bass-switch {
@@ -62,7 +65,7 @@ $h2: $h - 6px;
       width: calc(#{$h2} + 6px);
     }
   }
-  &.checked {
+  &.bass-switch-checked {
     background: #ffa502;
     border-color: #ffa502;
     > span {
