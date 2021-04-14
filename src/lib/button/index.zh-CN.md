@@ -29,9 +29,14 @@ map:
   desc="添加 disabled 属性即可让按钮处于不可用状态，同时按钮样式也会改变。">
 </demo>
 
+## 加载中状态
+
+<demo src="./demo/loading.vue"
+  language="vue"
+  title="加载中状态"
+  desc="添加 loading 属性即可让按钮处于加载中状态。">
+</demo>
+
 # TODO
 
-- 链接
-- click、focus、鼠标悬浮样式
-- disabled
 - loading

@@ -1,5 +1,11 @@
 <template>
-  <button class="bass-button" :class="classes" :disabled="disabled">
+  <button
+    class="bass-button"
+    :class="classes"
+    :disabled="disabled"
+    @click="onClick"
+  >
+    <span class="bass-loading_indicator" v-show="loading"></span>
     <slot></slot>
   </button>
 </template>
@@ -24,23 +30,37 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
-  setup(props) {
-    const { theme, size, level } = props;
+  emits: ['click'],
+  setup(props, context) {
+    const { theme, size, level, loading, disabled } = props;
     const classes = computed(() => ({
       [`bass-theme-${theme}`]: theme,
       [`bass-size-${size}`]: size,
       [`bass-level-${level}`]: level,
+      [`bass-loading`]: loading,
     }));
+
+    const onClick = (event: MouseEvent) => {
+      if (disabled || loading) {
+        return;
+      }
+      context.emit('click', event);
+    };
     return {
       classes,
+      onClick,
     };
   },
 });
 </script>
 <style lang="scss">
 $h: 36px;
-$border-color: #ced6e0;
+$border-color: #a4b0be;
 $color: #2f3542;
 $orange: #ffa502;
 $danger-color: #ff4757;
@@ -153,6 +173,13 @@ $disabled-bg-color: #f1f2f6;
       border-color: $disabled-color;
       color: $disabled-color;
       background-color: $disabled-bg-color;
+      &.bass-level-primary,
+      &.bass-level-danger {
+        &:hover,
+        &:focus {
+          background-color: $disabled-bg-color;
+        }
+      }
     }
   }
 
@@ -170,6 +197,87 @@ $disabled-bg-color: #f1f2f6;
       cursor: not-allowed;
       color: $disabled-color;
     }
+  }
+  > .bass-loading_indicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    animation: bass-spin 1s infinite linear;
+  }
+  &.bass-theme-button {
+    &.bass-loading {
+      &:hover,
+      &:focus {
+        color: $color;
+        border-color: $border-color;
+        cursor: default;
+      }
+      > .bass-loading_indicator {
+        border-color: $color $color $color transparent;
+      }
+      &.bass-level-primary {
+        &:hover,
+        &:focus {
+          color: #fff;
+          border-color: $orange;
+          background-color: $orange;
+          cursor: default;
+        }
+        > .bass-loading_indicator {
+          border-color: #fff #fff #fff transparent;
+        }
+      }
+      &.bass-level-danger {
+        &:hover,
+        &:focus {
+          color: #fff;
+          border-color: $danger-color;
+          background-color: $danger-color;
+          cursor: default;
+        }
+        > .bass-loading_indicator {
+          border-color: #fff #fff #fff transparent;
+        }
+      }
+    }
+  }
+  &.bass-theme-dashed {
+    &.bass-loading {
+      &:hover,
+      &:focus {
+        color: $color;
+        border-color: $border-color;
+        cursor: default;
+      }
+      > .bass-loading_indicator {
+        border-color: $color $color $color transparent;
+      }
+    }
+  }
+  &.bass-theme-link {
+    &.bass-loading {
+      &:hover,
+      &:focus {
+        color: $orange;
+        border-color: transparent;
+        cursor: default;
+      }
+      > .bass-loading_indicator {
+        border-color: $orange $orange $orange transparent;
+      }
+    }
+  }
+}
+@keyframes bass-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
