@@ -21,6 +21,7 @@ jobs:
       - name: ls-lint
         run: yarn ls-lint
   build-and-deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,5 +37,5 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: docs/dist
+          FOLDER: ./docs/dist
           CLEAN: true
