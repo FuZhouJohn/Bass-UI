@@ -9,7 +9,7 @@ module.exports = {
     'bass-ui': resolve('./src'),
   },
   base,
-  outDir: '../dist',
+  outDir: 'dist',
   themeConfig: {
     logo: '/logo.svg',
     lang: 'zh-CN',
