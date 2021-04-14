@@ -36,7 +36,3 @@ map:
   title="加载中状态"
   desc="添加 loading 属性即可让按钮处于加载中状态。">
 </demo>
-
-# TODO
-
-- loading

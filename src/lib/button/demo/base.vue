@@ -1,5 +1,5 @@
 <template>
-  <Button level="primary" @click="handleClick" loading>主要按钮</Button>
+  <Button level="primary" @click="handleClick">主要按钮</Button>
   <Button>默认按钮</Button>
   <Button level="danger">危险按钮</Button>
   <Button theme="dashed">虚线按钮</Button>
