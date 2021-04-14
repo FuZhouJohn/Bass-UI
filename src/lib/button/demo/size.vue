@@ -1,13 +1,8 @@
 <template>
   <div class="item">
-    <Button theme="primary" size="small">Small Button</Button>
-    <Button theme="primary">Normal Button</Button>
-    <Button theme="primary" size="large">Large Button</Button>
-  </div>
-  <div class="item">
     <Button size="small">Small Button</Button>
-    <Button>Normal Button</Button>
-    <Button size="large">Large Button</Button>
+    <Button level="primary">Normal Button</Button>
+    <Button size="large" level="danger">Large Button</Button>
   </div>
   <div class="item">
     <Button theme="link" size="small">Small Button</Button>
@@ -15,9 +10,9 @@
     <Button theme="link" size="large">Large Button</Button>
   </div>
   <div class="item">
-    <Button theme="text" size="small">Small Button</Button>
-    <Button theme="text">Normal Button</Button>
-    <Button theme="text" size="large">Large Button</Button>
+    <Button theme="dashed" size="small">Small Button</Button>
+    <Button theme="dashed">Normal Button</Button>
+    <Button theme="dashed" size="large">Large Button</Button>
   </div>
 </template>
 <script setup lang="ts">

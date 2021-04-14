@@ -1,8 +1,9 @@
 <template>
-  <Button theme="test">Default Button</Button>
-  <Button theme="primary">Primary Button</Button>
-  <Button theme="link">Link Button</Button>
-  <Button theme="text">Text Button</Button>
+  <Button level="primary">主要按钮</Button>
+  <Button>默认按钮</Button>
+  <Button level="danger">危险按钮</Button>
+  <Button theme="dashed">虚线按钮</Button>
+  <Button theme="link">链接按钮</Button>
 </template>
 <script lang="ts" setup>
 import { Button } from 'bass-ui';
