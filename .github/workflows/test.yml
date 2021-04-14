@@ -1,6 +1,9 @@
 name: Unit Test
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -33,9 +36,8 @@ jobs:
           yarn
           yarn docs-build
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: ./docs/dist
-          CLEAN: true
