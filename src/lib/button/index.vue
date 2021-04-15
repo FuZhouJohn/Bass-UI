@@ -72,7 +72,7 @@ $disabled-bg-color: #f1f2f6;
   box-sizing: border-box;
   height: $h;
   padding: 0 18px 0 16px;
-  cursor: pointer;
+  cursor: default;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +91,7 @@ $disabled-bg-color: #f1f2f6;
   &:focus {
     color: $orange;
     border-color: $orange;
+    cursor: pointer;
   }
   &:focus {
     outline: none;
