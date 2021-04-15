@@ -1,6 +1,6 @@
 ---
 map:
-  path: /form/button
+  path: /basic/button
 ---
 
 # Button 按钮
