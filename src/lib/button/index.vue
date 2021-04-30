@@ -71,7 +71,7 @@ $disabled-bg-color: #f1f2f6;
 .bass-button {
   box-sizing: border-box;
   height: $h;
-  padding: 0 18px 0 16px;
+  padding: 0 20px 0 16px;
   cursor: default;
   display: inline-flex;
   justify-content: center;
