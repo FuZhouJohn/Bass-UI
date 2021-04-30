@@ -1,19 +1,19 @@
 <template>
   <template v-if="visible">
-    <div class="bass-dialog-overlay"></div>
+    <div class="bass-dialog-overlay" @click="clickOverlay"></div>
     <div class="bass-dialog-wrapper">
       <div class="bass-dialog">
         <header>
           <span>标题</span>
-          <span class="bass-dialog-close"></span>
+          <span class="bass-dialog-close" @click="close"></span>
         </header>
         <main>
           <p>内容 1</p>
           <p>内容 2</p>
         </main>
         <footer>
-          <Button level="primary">OK</Button>
-          <Button>Cancel</Button>
+          <Button level="primary" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -23,6 +23,7 @@
 import Button from '../button/index.vue';
 import { defineComponent } from 'vue';
 export default defineComponent({
+  name: 'BassDialog',
   components: {
     Button,
   },
@@ -31,6 +32,36 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  emits: ['ok', 'update:visible', 'cancel'],
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+
+    const ok = () => {
+      context.emit('ok');
+    };
+    const cancel = () => {
+      context.emit('cancel');
+      close();
+    };
+    const clickOverlay = () => {
+      if (!props.closeOnClickOverlay) {
+        return;
+      }
+      close();
+    };
+    return {
+      close,
+      ok,
+      cancel,
+      clickOverlay,
+    };
   },
 });
 </script>
@@ -41,7 +72,6 @@ $border-color: #d9d9d9;
 .bass-dialog {
   background: white;
   border-radius: $radius;
-  border-top-right-radius: 24px;
   box-shadow: 0 0 3px fade_out(black, 0.5);
   min-width: 50vw;
   max-width: 90%;
